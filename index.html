@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memorial Transportation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    :root{
+      --olive:#7d873f;
+      --olive-dark:#3b4222;
+      --brown:#351c1d;
+      --light:#f3f3f3;
+      --text:#222;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--text);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:440px;
+      height:18px;
+      background:var(--brown);
+      clip-path:polygon(10% 0,100% 0,96% 100%,0 100%);
+    }
+
+    nav.container-fluid{
+      height:92px;
+      padding:0 38px;
+      display:flex;
+      align-items:center;
+      background:#fff;
+      box-shadow:none;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:var(--brown);
+    }
+
+    .mark{
+      width:72px;
+      height:58px;
+      background:linear-gradient(135deg,var(--olive-dark) 0 45%,transparent 45%),
+                 linear-gradient(45deg,var(--olive) 0 55%,transparent 55%);
+      clip-path:polygon(0 0,32% 0,48% 38%,65% 0,100% 0,78% 100%,52% 54%,30% 100%,0 100%);
+    }
+
+    .logo strong{
+      font-size:27px;
+      line-height:1;
+      letter-spacing:.5px;
+    }
+
+    .logo span{
+      display:block;
+      color:var(--olive);
+      font-size:17px;
+      letter-spacing:4px;
+      margin-top:4px;
+    }
+
+    nav a{
+      font-size:13px;
+      font-weight:700;
+      color:#333;
+      text-decoration:none;
+      margin:0 13px;
+    }
+
+    nav a.active{
+      color:#111;
+      border-bottom:3px solid var(--olive);
+      padding-bottom:8px;
+    }
+
+    nav a[role=button]{
+      background:var(--olive);
+      border:none;
+      color:#fff;
+      padding:14px 23px;
+      border-radius:2px;
+    }
+
+    main.container{
+      max-width:none;
+      padding:0;
+    }
+
+    .hero{
+      min-height:470px;
+      display:grid;
+      grid-template-columns:42% 58%;
+      background:
+        linear-gradient(105deg,#fff 0 38%,rgba(255,255,255,.82) 38%,rgba(255,255,255,0) 54%),
+        url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover;
+      background-position:center right;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:0;
+      width:320px;
+      height:250px;
+      background:linear-gradient(135deg,transparent 0 25%,rgba(125,135,63,.9) 25% 72%,var(--brown) 72%);
+      clip-path:polygon(48% 0,100% 0,100% 100%,0 100%);
+    }
+
+    .hero-content{
+      padding:35px 0 25px 74px;
+      max-width:430px;
+      z-index:2;
+    }
+
+    h1{
+      font-size:47px;
+      line-height:1.02;
+      margin:0 0 22px;
+      color:var(--brown);
+      font-weight:900;
+      letter-spacing:-1px;
+    }
+
+    h1 span{color:var(--olive)}
+
+    .line{
+      width:55px;
+      height:4px;
+      background:var(--olive);
+      margin:0 0 16px;
+    }
+
+    .hero p{
+      font-size:17px;
+      line-height:1.55;
+      color:#333;
+      margin-bottom:25px;
+      font-weight:600;
+    }
+
+    .hero-badges{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-weight:900;
+      font-size:15px;
+    }
+
+    .badge{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#222;
+    }
+
+    .circle{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:var(--olive);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:25px;
+    }
+
+    .circle.brown{background:var(--brown)}
+
+    .services{
+      background:#f1f1f1;
+      padding:34px 60px 32px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:var(--olive);
+      font-weight:900;
+      font-size:14px;
+      letter-spacing:.5px;
+      margin-bottom:5px;
+    }
+
+    h2{
+      margin:0 0 24px;
+      font-size:30px;
+      color:#111;
+      font-weight:900;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:26px;
+      max-width:1060px;
+      margin:auto;
+    }
+
+    .card{
+      background:#fff;
+      min-height:205px;
+      padding:25px 35px 20px;
+      border-radius:3px;
+      box-shadow:0 2px 8px rgba(0,0,0,.18);
+    }
+
+    .card .icon{
+      font-size:48px;
+      color:var(--olive);
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .card:nth-child(2) .icon{color:var(--brown)}
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      color:#222;
+    }
+
+    .card p{
+      font-size:15px;
+      line-height:1.45;
+      margin:0 auto;
+      max-width:270px;
+      font-weight:600;
+    }
+
+    .small-line{
+      width:43px;
+      height:3px;
+      background:var(--olive);
+      margin:17px auto 0;
+    }
+
+    .card:nth-child(2) .small-line{background:var(--brown)}
+
+    .stats{
+      background:
+        linear-gradient(rgba(53,28,29,.94),rgba(53,28,29,.94)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+      color:#fff;
+      text-align:center;
+      padding:28px 55px 24px;
+    }
+
+    .stats h2{
+      color:#fff;
+      margin-bottom:22px;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      max-width:1070px;
+      margin:auto;
+    }
+
+    .stat{
+      border-right:1px solid rgba(255,255,255,.45);
+      padding:0 20px;
+      min-height:78px;
+    }
+
+    .stat:last-child{border-right:none}
+
+    .stat .sicon{
+      font-size:31px;
+      opacity:.95;
+    }
+
+    .stat strong{
+      display:block;
+      color:#9cad4f;
+      font-size:24px;
+      line-height:1;
+      margin-top:4px;
+    }
+
+    .stat span{
+      font-size:12px;
+      font-weight:800;
+      color:#eee;
+    }
+
+    .info{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:35px;
+      padding:30px 62px 25px;
+      max-width:1180px;
+      margin:auto;
+    }
+
+    .info h2{
+      font-size:24px;
+      margin-bottom:7px;
+    }
+
+    .map{
+      height:205px;
+      background:#c3c99a;
+      clip-path:polygon(3% 27%,15% 10%,31% 17%,48% 5%,64% 15%,86% 7%,98% 28%,91% 68%,67% 82%,46% 78%,30% 94%,13% 72%);
+      opacity:.95;
+      margin:0 auto 10px;
+      max-width:410px;
+      position:relative;
+    }
+
+    .bullets{
+      float:left;
+      width:120px;
+      margin-top:20px;
+      font-size:13px;
+      font-weight:700;
+      line-height:2.1;
+    }
+
+    .bullets div::before{
+      content:"✓";
+      background:var(--olive);
+      color:#fff;
+      border-radius:50%;
+      padding:1px 4px;
+      margin-right:8px;
+    }
+
+    .info p{
+      font-size:14px;
+      line-height:1.55;
+      font-weight:600;
+    }
+
+    .driver{
+      border-left:1px solid #ddd;
+      padding-left:40px;
+    }
+
+    .driver-row{
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:20px;
+      align-items:start;
+      margin-bottom:10px;
+    }
+
+    .driver-photo{
+      width:132px;
+      height:132px;
+      border-radius:50%;
+      border:5px solid var(--olive);
+      background:url("https://images.unsplash.com/photo-1573497019236-17f8177b81e8?auto=format&fit=crop&w=400&q=80") center/cover;
+    }
+
+    .green{color:var(--olive);font-weight:900}
+
+    .cta{
+      background:#343b20;
+      color:#fff;
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      padding:28px 62px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta::after{
+      content:"MT";
+      position:absolute;
+      right:95px;
+      top:33px;
+      color:#fff;
+      font-size:72px;
+      font-weight:900;
+      opacity:.95;
+    }
+
+    .cta h2{
+      color:#fff;
+      font-size:29px;
+      line-height:1.08;
+      margin-bottom:8px;
+    }
+
+    .cta p{
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .cta button{
+      background:var(--olive);
+      border:none;
+      padding:11px 22px;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .contact{
+      border-left:1px solid rgba(255,255,255,.5);
+      padding-left:60px;
+      font-size:15px;
+      font-weight:800;
+      line-height:2.3;
+    }
+
+    footer.container{
+      max-width:none;
+      padding:9px;
+      background:var(--brown);
+      color:#eee;
+      text-align:center;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    footer a{color:#eee;text-decoration:none}
+
+    @media(max-width:850px){
+      nav.container-fluid{height:auto;flex-direction:column;padding:20px}
+      .hero{grid-template-columns:1fr}
+      .hero-content{padding:40px 25px}
+      .cards,.stat-grid,.info,.cta{grid-template-columns:1fr}
+      .driver{border-left:none;padding-left:0}
+      .contact{border-left:none;padding-left:0}
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li>
+        <div class="logo">
+          <div class="mark"></div>
+          <strong>MEMORIAL<span>TRANSPORTATION</span></strong>
+        </div>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="#" class="active">HOME</a></li>
+      <li><a href="#">SERVICES</a></li>
+      <li><a href="#">ABOUT US</a></li>
+      <li><a href="#">OUR ADVANTAGE</a></li>
+      <li><a href="#">CONTACT</a></li>
+      <li><a href="#" role="button">☎ 24/7 DISPATCH</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>YOUR TRUSTED<br>PARTNER IN<br><span>LOGISTICS<br>EXCELLENCE</span></h1>
+        <div class="line"></div>
+        <p>Time-sensitive freight, airport cargo linehaul, and dedicated lane operations across the nation — delivered with reliability, speed, and precision.</p>
+        <div class="hero-badges">
+          <div class="badge"><div class="circle">✈</div>AIRPORT<br>LINEHAUL</div>
+          <div class="badge"><div class="circle brown">▰</div>EXPEDITED<br>FREIGHT</div>
+          <div class="badge"><div class="circle">🤝</div>DEDICATED<br>LANES</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="eyebrow">OUR CORE SERVICES</div>
+      <h2>Built For Time-Critical Freight</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">✈</div>
+          <h3>AIRPORT CARGO LINEHAUL</h3>
+          <p>Specialized airport-to-airport and airport-to-destination linehaul with a focus on cut times and on-time performance.</p>
+          <div class="small-line"></div>
+        </article>
+        <article class="card">
+          <div class="icon">🚚</div>
+          <h3>EXPEDITED FREIGHT</h3>
+          <p>Time-sensitive shipments moved with urgency and precision. We keep your freight moving when every minute matters.</p>
+          <div class="small-line"></div>
+        </article>
+        <article class="card">
+          <div class="icon">🤝</div>
+          <h3>DEDICATED LANES</h3>
+          <p>Consistent capacity on your dedicated lanes with reliable equipment and drivers you can count on.</p>
+          <div class="small-line"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="eyebrow">OUR STRENGTH. YOUR ADVANTAGE.</div>
+      <h2>Proven Capability. Reliable Results.</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="sicon">🚚</div><strong>26</strong><span>TRUCKS</span></div>
+        <div class="stat"><div class="sicon">▭</div><strong>53'</strong><span>DRY VANS</span></div>
+        <div class="stat"><div class="sicon">👥</div><strong>TEAM DRIVERS</strong><span>For Continuous Transit</span></div>
+        <div class="stat"><div class="sicon">◷</div><strong>24/7</strong><span>DISPATCH</span></div>
+        <div class="stat"><div class="sicon">♢</div><strong>MC-1067828</strong><span>DOT 3343999</span></div>
+        <div class="stat"><div class="sicon">▣</div><strong>DUNS</strong><span>10-126-7294</span></div>
+      </div>
+    </section>
+
+    <section class="info">
+      <div>
+        <h2>Nationwide Coverage</h2>
+        <div class="line"></div>
+        <div class="bullets">
+          <div>Southeast</div>
+          <div>Southwest</div>
+          <div>California</div>
+          <div>Northeast</div>
+          <div>& Beyond</div>
+        </div>
+        <div class="map"></div>
+        <p style="text-align:center">Strategically positioned in Atlanta, GA with access to major corridors including ATL, ORD, DFW, IAD, and destinations nationwide.</p>
+      </div>
+
+      <div class="driver">
+        <h2>Team Driver Advantage</h2>
+        <div class="line"></div>
+        <div class="driver-row">
+          <div class="driver-photo"></div>
+          <p>The majority of our fleet runs two-driver team operations — not solo. This is a critical differentiator for time-sensitive freight.<br><br>With team drivers, trucks keep moving around the clock with no mandatory rest stops.</p>
+        </div>
+        <p>For airport linehaul and expedited freight where cut times and on-time delivery are non-negotiable, teams provide the reliability and speed that solo operations simply cannot match.</p>
+        <p class="green">Fewer delays. Tighter transit windows. Consistent execution.</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Let’s Move Your Freight<br>The Right Way.</h2>
+        <div class="line"></div>
+        <p>24/7 dispatch. Real people. Real results.</p>
+        <button>☎ CONTACT US TODAY</button>
+      </div>
+      <div class="contact">
+        👤 HARUN ALI<br>
+        Operations Manager<br>
+        ☎ 470-755-8508<br>
+        ✉ Harun@memorialtransportation.com<br>
+        📍 HQ: Atlanta, GA
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>
+      <a href="#">Memorial Transportation LLC</a> &nbsp; | &nbsp;
+      <a href="#">Atlanta, GA</a> &nbsp; | &nbsp;
+      24/7 Dispatch &nbsp; | &nbsp; MC-1067828 &nbsp; | &nbsp; DOT 3343999
+    </small>
+  </footer>
+</body>
+</html>
