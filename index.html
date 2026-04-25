@@ -13,252 +13,450 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #f4f6f8;
-      color: #111827;
-      line-height: 1.6;
+      background: #f4f4f1;
+      color: #221517;
+    }
+
+    :root {
+      --green: #7f8b3f;
+      --dark-green: #333b20;
+      --brown: #3a1719;
+      --cream: #f4f4f1;
+      --white: #ffffff;
     }
 
     header {
-      background: #0b1f3a;
-      color: white;
-      padding: 22px 8%;
+      background: white;
+      height: 92px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 7%;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 900;
+      color: var(--brown);
+      font-size: 25px;
       letter-spacing: 1px;
     }
 
+    .logo-mark {
+      background: var(--green);
+      color: white;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 24px;
+      clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 25% 50%);
+    }
+
     .logo span {
-      color: #f5b301;
+      display: block;
+      color: var(--green);
+      font-size: 16px;
+      letter-spacing: 3px;
     }
 
     nav a {
-      color: white;
+      color: #222;
       text-decoration: none;
-      margin-left: 25px;
-      font-weight: 600;
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 800;
     }
 
-    nav a:hover {
-      color: #f5b301;
+    .dispatch-btn {
+      background: var(--green);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 800;
+      margin-left: 28px;
     }
 
     .hero {
-      min-height: 85vh;
-      background: linear-gradient(rgba(11,31,58,.85), rgba(11,31,58,.85)),
-      url("hero-truck.jpg");
-      background-size: cover;
-      background-position: center;
-      color: white;
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: 45% 55%;
+      background: white;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      padding: 90px 7% 60px 14%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text h1 {
+      font-size: 58px;
+      line-height: .98;
+      color: var(--brown);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 span {
+      color: var(--green);
+      display: block;
+    }
+
+    .line {
+      width: 70px;
+      height: 4px;
+      background: var(--green);
+      margin-bottom: 22px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 520px;
+      color: #333;
+      margin-bottom: 35px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
       display: flex;
       align-items: center;
-      padding: 0 8%;
+      gap: 10px;
+      font-weight: 900;
+      color: #222;
+      text-transform: uppercase;
+      font-size: 14px;
     }
 
-    .hero-content {
-      max-width: 750px;
+    .tag-icon {
+      width: 45px;
+      height: 45px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
     }
 
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .hero-image {
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.2), rgba(127,139,63,.15)),
+        url("hero-truck.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    .hero h1 span {
-      color: #f5b301;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #e5e7eb;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #f5b301;
-      color: #0b1f3a;
-      padding: 14px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #d99b00;
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: 0;
+      width: 300px;
+      height: 100%;
+      background: rgba(127,139,63,.85);
+      transform: skewX(-35deg);
     }
 
     section {
-      padding: 70px 8%;
+      padding: 70px 7%;
     }
 
-    .section-title {
+    .section-head {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 38px;
     }
 
-    .section-title h2 {
+    .section-head small {
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
       font-size: 38px;
-      color: #0b1f3a;
-    }
-
-    .section-title p {
-      color: #6b7280;
-      max-width: 750px;
-      margin: 10px auto 0;
+      color: #111;
+      margin-top: 8px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
 
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.08);
-      border-top: 5px solid #f5b301;
+      padding: 42px 30px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.12);
+      border-bottom: 5px solid transparent;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-bottom-color: var(--green);
+    }
+
+    .card-icon {
+      font-size: 48px;
+      color: var(--green);
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      color: #0b1f3a;
-      margin-bottom: 12px;
-      font-size: 22px;
+      color: var(--brown);
+      font-size: 21px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
     }
 
-    .about {
+    .card p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .stats {
+      background:
+        linear-gradient(rgba(58,23,25,.92), rgba(58,23,25,.92)),
+        url("hero-truck.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+
+    .stats h2 {
+      font-size: 34px;
+      margin-bottom: 45px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 22px;
+    }
+
+    .stat {
+      border-right: 1px solid rgba(255,255,255,.35);
+      padding: 10px;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      color: var(--green);
+      font-size: 30px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
       background: white;
     }
 
-    .about-grid {
+    .split h2 {
+      font-size: 31px;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .coverage-list {
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .coverage-list li {
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .coverage-list li::before {
+      content: "✓";
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      padding: 3px 7px;
+      margin-right: 10px;
+    }
+
+    .map-box {
+      margin-top: 25px;
+      background: #eef0df;
+      border-radius: 12px;
+      padding: 35px;
+      text-align: center;
+      color: var(--green);
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .advantage-box {
+      border-left: 5px solid var(--green);
+      padding-left: 25px;
+    }
+
+    .advantage-box p {
+      font-size: 17px;
+      line-height: 1.75;
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    .highlight {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .cta {
+      background: var(--dark-green);
+      color: white;
       display: grid;
-      grid-template-columns: 1.3fr .7fr;
+      grid-template-columns: 1fr 1fr 250px;
       gap: 40px;
       align-items: center;
     }
 
-    .about-text h2 {
-      color: #0b1f3a;
+    .cta h2 {
       font-size: 38px;
-      margin-bottom: 20px;
+      line-height: 1.1;
+      margin-bottom: 18px;
     }
 
-    .stats {
-      background: #0b1f3a;
+    .cta p {
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
       color: white;
-      padding: 35px;
-      border-radius: 14px;
-    }
-
-    .stat {
-      margin-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,.2);
-      padding-bottom: 15px;
-    }
-
-    .stat:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .stat strong {
-      display: block;
-      color: #f5b301;
-      font-size: 28px;
-    }
-
-    .advantage {
-      background: #0b1f3a;
-      color: white;
-    }
-
-    .advantage h2 {
-      color: white;
-    }
-
-    .advantage-box {
-      background: rgba(255,255,255,.08);
-      border-left: 6px solid #f5b301;
-      padding: 35px;
-      border-radius: 10px;
-      max-width: 1000px;
-      margin: auto;
-      font-size: 18px;
-    }
-
-    .contact {
-      background: white;
-    }
-
-    .contact-box {
-      max-width: 850px;
-      margin: auto;
-      background: #0b1f3a;
-      color: white;
-      padding: 40px;
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .contact-box h2 {
-      font-size: 34px;
-      margin-bottom: 20px;
-    }
-
-    .contact-info {
-      margin-top: 25px;
-      font-size: 18px;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 4px;
+      font-weight: 900;
     }
 
     .contact-info p {
-      margin: 10px 0;
+      margin-bottom: 13px;
+      font-size: 17px;
+      font-weight: 700;
     }
 
     .contact-info a {
-      color: #f5b301;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+    }
+
+    .footer-logo {
+      text-align: center;
+      font-size: 52px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: white;
     }
 
     footer {
-      background: #071527;
+      background: var(--brown);
       color: white;
       text-align: center;
-      padding: 25px;
+      padding: 18px;
       font-size: 14px;
+      letter-spacing: .5px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 950px) {
       header {
-        text-align: center;
-        display: block;
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
       }
 
       nav {
-        margin-top: 15px;
+        text-align: center;
       }
 
-      nav a {
+      nav a,
+      .dispatch-btn {
         display: inline-block;
         margin: 8px;
       }
 
-      .hero h1 {
-        font-size: 40px;
+      .hero {
+        grid-template-columns: 1fr;
       }
 
-      .about-grid {
+      .hero-text {
+        padding: 60px 8%;
+      }
+
+      .hero-text h1 {
+        font-size: 43px;
+      }
+
+      .hero-image {
+        min-height: 330px;
+      }
+
+      .cards,
+      .split,
+      .cta {
         grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.25);
       }
     }
   </style>
@@ -267,159 +465,178 @@
 <body>
 
   <header>
-    <div class="logo">MEMORIAL <span>TRANSPORTATION</span></div>
+    <div class="logo">
+      <div class="logo-mark">MT</div>
+      <div>
+        MEMORIAL
+        <span>TRANSPORTATION</span>
+      </div>
+    </div>
+
     <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#strengths">Strengths</a>
-      <a href="#contact">Contact</a>
+      <a href="#home">HOME</a>
+      <a href="#services">SERVICES</a>
+      <a href="#coverage">COVERAGE</a>
+      <a href="#advantage">OUR ADVANTAGE</a>
+      <a href="#contact">CONTACT</a>
+      <a class="dispatch-btn" href="tel:4707558508">☎ 24/7 DISPATCH</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Reliable Freight. <span>Delivered Nationwide.</span></h1>
-      <p>
-        Atlanta-based carrier specializing in airport linehaul, expedited freight,
-        team trucks, and dedicated lane operations.
-      </p>
-      <a href="#contact" class="btn">Contact Dispatch</a>
-    </div>
-  </section>
+  <main>
 
-  <section class="about" id="about">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>About Memorial Transportation</h2>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>
+          Your Trusted Partner In
+          <span>Logistics Excellence</span>
+        </h1>
+        <div class="line"></div>
         <p>
-          Memorial Transportation LLC is an Atlanta-based carrier focused on
-          time-sensitive freight, airport cargo linehaul, and dedicated lane
-          operations. We serve freight forwarders, airlines, integrators, and
-          structured freight networks with reliable communication, speed, and
-          consistent execution.
+          Time-sensitive freight, airport cargo linehaul, and dedicated lane operations
+          across the nation — delivered with reliability, speed, and precision.
         </p>
-        <br />
-        <p>
-          Our Atlanta hub gives us strategic access to major freight corridors
-          including ATL, ORD, DFW, IAD, California, the Northeast, Southeast,
-          Southwest, and nationwide destinations.
-        </p>
+
+        <div class="hero-tags">
+          <div class="tag"><div class="tag-icon">✈</div> Airport Linehaul</div>
+          <div class="tag"><div class="tag-icon">▣</div> Expedited Freight</div>
+          <div class="tag"><div class="tag-icon">🤝</div> Dedicated Lanes</div>
+        </div>
       </div>
 
-      <div class="stats">
+      <div class="hero-image"></div>
+    </section>
+
+    <section id="services">
+      <div class="section-head">
+        <small>Our Core Services</small>
+        <h2>Built For Time-Critical Freight</h2>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">✈</div>
+          <h3>Airport Cargo Linehaul</h3>
+          <p>Specialized airport-to-airport and airport-to-destination linehaul with a focus on cut times and on-time performance.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🚚</div>
+          <h3>Expedited Freight</h3>
+          <p>Time-sensitive shipments moved with urgency and precision. We keep freight moving when every minute matters.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Dedicated Lanes</h3>
+          <p>Consistent capacity on dedicated lanes with reliable equipment, communication, and drivers you can count on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <small style="color:#7f8b3f; font-weight:900;">OUR STRENGTH. YOUR ADVANTAGE.</small>
+      <h2>Proven Capability. Reliable Results.</h2>
+
+      <div class="stat-grid">
         <div class="stat">
           <strong>26</strong>
-          Trucks
+          <span>Trucks</span>
         </div>
+
         <div class="stat">
           <strong>53'</strong>
-          Dry Vans
+          <span>Dry Vans</span>
         </div>
+
+        <div class="stat">
+          <strong>Team</strong>
+          <span>Drivers</span>
+        </div>
+
         <div class="stat">
           <strong>24/7</strong>
-          Dispatch Availability
+          <span>Dispatch</span>
         </div>
+
         <div class="stat">
-          <strong>MC-1067828</strong>
-          Authorized Carrier
+          <strong>MC</strong>
+          <span>1067828</span>
+        </div>
+
+        <div class="stat">
+          <strong>DOT</strong>
+          <span>3343999</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="section-title">
-      <h2>Core Services</h2>
-      <p>Built for high-priority shipments, tight cut times, and dependable freight movement.</p>
-    </div>
+    <section class="split" id="coverage">
+      <div>
+        <h2>Nationwide Coverage</h2>
+        <div class="line"></div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Airport Cargo Linehaul</h3>
-        <p>Reliable airport freight movement with cut-time focused operations.</p>
+        <ul class="coverage-list">
+          <li>Southeast</li>
+          <li>Southwest</li>
+          <li>California & West Coast</li>
+          <li>Northeast Corridor</li>
+          <li>Nationwide & Beyond</li>
+        </ul>
+
+        <div class="map-box">
+          ATL • ORD • DFW • IAD<br />
+          Nationwide Freight Coverage
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Expedited Freight</h3>
-        <p>Fast, time-sensitive shipping supported by team driver capability.</p>
+      <div class="advantage-box" id="advantage">
+        <h2>Team Driver Advantage</h2>
+        <div class="line"></div>
+
+        <p>
+          The majority of our fleet runs two-driver team operations — not solo.
+          This is a critical advantage for time-sensitive freight.
+        </p>
+
+        <p>
+          With team drivers, trucks keep moving around the clock with fewer delays
+          and tighter transit windows. A load that may take a solo driver 2–3 days
+          can often arrive in 24–36 hours.
+        </p>
+
+        <p class="highlight">
+          Fewer delays. Tighter transit windows. Consistent execution.
+        </p>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Dedicated Lanes</h3>
-        <p>Consistent lane coverage for structured freight networks.</p>
+    <section class="cta" id="contact">
+      <div>
+        <h2>Let’s Move Your Freight The Right Way.</h2>
+        <p>24/7 dispatch. Real people. Reliable results.</p>
+        <a class="btn" href="tel:4707558508">Contact Us Today</a>
       </div>
-
-      <div class="card">
-        <h3>Drop & Hook</h3>
-        <p>Flexible trailer operations designed to reduce delays and improve efficiency.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="strengths">
-    <div class="section-title">
-      <h2>Operational Strengths</h2>
-      <p>Capacity, communication, and execution across major freight corridors.</p>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Team Drivers</h3>
-        <p>Continuous transit for faster delivery windows and fewer delays.</p>
-      </div>
-
-      <div class="card">
-        <h3>Nationwide Coverage</h3>
-        <p>Southeast, Southwest, California, Northeast, and beyond.</p>
-      </div>
-
-      <div class="card">
-        <h3>Short Notice Capacity</h3>
-        <p>Flexible support for urgent freight and changing network needs.</p>
-      </div>
-
-      <div class="card">
-        <h3>Strong Communication</h3>
-        <p>24/7 dispatch and consistent updates from pickup to delivery.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="advantage">
-    <div class="section-title">
-      <h2>Team Driver Advantage</h2>
-    </div>
-
-    <div class="advantage-box">
-      <p>
-        The majority of our fleet runs two-driver team operations instead of solo.
-        This allows trucks to keep moving around the clock, helping time-sensitive
-        freight arrive faster and more reliably. For airport linehaul and expedited
-        freight where cut times matter, team drivers provide the speed and consistency
-        needed to meet tight delivery windows.
-      </p>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="contact-box">
-      <h2>Contact Memorial Transportation</h2>
-      <p>Ready to discuss airport linehaul, expedited freight, or dedicated lane opportunities?</p>
 
       <div class="contact-info">
-        <p><strong>Harun Ali</strong> — Operations Manager</p>
-        <p>Phone: <a href="tel:4707558508">470-755-8508</a></p>
-        <p>Email: <a href="mailto:Harun@memorialtransportation.com">Harun@memorialtransportation.com</a></p>
-        <p>Location: Atlanta, GA</p>
-        <p>MC Number: MC-1067828</p>
-        <p>DOT Number: 3343999</p>
-        <p>DUNS Number: 10-126-7294</p>
+        <p><strong>Harun Ali</strong><br>Operations Manager</p>
+        <p>☎ <a href="tel:4707558508">470-755-8508</a></p>
+        <p>✉ <a href="mailto:Harun@memorialtransportation.com">Harun@memorialtransportation.com</a></p>
+        <p>📍 HQ: Atlanta, GA</p>
+        <p>MC-1067828 | DOT 3343999</p>
+        <p>DUNS: 10-126-7294</p>
       </div>
-    </div>
-  </section>
+
+      <div class="footer-logo">
+        MT
+        <span>MEMORIAL TRANSPORTATION</span>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    Memorial Transportation LLC • Atlanta, GA • 24/7 Dispatch • MC-1067828 • DOT 3343999
+    Memorial Transportation LLC | Atlanta, GA | 24/7 Dispatch | MC-1067828 | DOT 3343999
   </footer>
 
 </body>
